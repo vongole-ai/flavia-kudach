@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flavia Kudach — Arteterapia & Acompañamiento</title>
+
+  <!-- SEO -->
+  <title>Flavia Kudach — Arteterapia y Acompañamiento Terapéutico en Barcelona</title>
+  <meta name="description" content="Arte terapeuta y acompañante terapéutica en Barcelona. Especializada en terapia relacional, orientación vocacional y gestión de equipos. Sesiones presenciales y online." />
+  <meta name="author" content="Flavia Kudach" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Flavia Kudach — Arteterapia y Acompañamiento Terapéutico en Barcelona" />
+  <meta property="og:description" content="Arte terapeuta y acompañante terapéutica en Barcelona. Terapia relacional, orientación vocacional y gestión de equipos." />
+  <meta property="og:url" content="https://flaviakudach.com" />
+  <meta property="og:image" content="https://flaviakudach.com/flavia.jpg" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233B2F27'/><text y='.9em' font-size='70' x='12'>🌿</text></svg>" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -18,7 +36,7 @@
       --terra:   #B08A6E;
       --deep:    #3B2F27;
       --text:    #4A3D34;
-      --muted:   #8C7B6E;
+      --muted:   #7A6A5E;
       --accent:  #7A9E8A;
     }
 
@@ -31,13 +49,14 @@
       overflow-x: hidden;
     }
 
+    /* ─── NOISE TEXTURE ─── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
       pointer-events: none;
-      z-index: 1000;
+      z-index: 1;
       opacity: 0.4;
     }
 
@@ -50,10 +69,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(247, 243, 238, 0.88);
+      background: rgba(247, 243, 238, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(176, 138, 110, 0.12);
-      transition: all 0.3s ease;
+      transition: box-shadow 0.3s ease;
     }
 
     .nav-logo {
@@ -83,6 +102,73 @@
 
     .nav-links a:hover { color: var(--deep); }
 
+    /* ─── HAMBURGER ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 110;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--deep);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── MOBILE MENU ─── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--deep);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--terra); }
+
+    .mobile-menu .mobile-cta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--deep);
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      margin-top: 1rem;
+    }
+
+    .mobile-menu .mobile-cta:hover { background: var(--terra); }
+
     /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
@@ -104,7 +190,7 @@
       pointer-events: none;
     }
 
-    .hero-text { position: relative; z-index: 1; }
+    .hero-text { position: relative; z-index: 2; }
 
     .hero-eyebrow {
       font-size: 0.72rem;
@@ -147,7 +233,25 @@
       color: var(--muted);
       max-width: 42ch;
       font-weight: 300;
+      margin-bottom: 2.5rem;
     }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--deep);
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover { background: var(--terra); transform: translateY(-1px); }
 
     .hero-visual {
       position: relative;
@@ -178,6 +282,13 @@
       height: 100%;
       object-fit: cover;
       opacity: 0.9;
+    }
+
+    /* ─── REDUCED MOTION ─── */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .hero-image-frame { animation: none; }
+      * { transition-duration: 0.01ms !important; }
     }
 
     /* ─── SECTION BASE ─── */
@@ -231,7 +342,7 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
+      gap: 1px;
       background: rgba(247,243,238,0.08);
       border: 1px solid rgba(247,243,238,0.08);
       border-radius: 1.5rem;
@@ -256,8 +367,7 @@
     }
 
     .service-icon {
-      width: 48px;
-      height: 48px;
+      width: 48px; height: 48px;
       border-radius: 50%;
       background: rgba(176,138,110,0.15);
       border: 1px solid rgba(176,138,110,0.3);
@@ -280,7 +390,7 @@
     .service-text {
       font-size: 0.87rem;
       line-height: 1.75;
-      color: rgba(247,243,238,0.55);
+      color: rgba(247,243,238,0.7);
       font-weight: 300;
     }
 
@@ -426,7 +536,7 @@
     .contact-text {
       font-size: 1rem;
       line-height: 1.8;
-      color: rgba(247,243,238,0.6);
+      color: rgba(247,243,238,0.7);
       font-weight: 300;
       margin-bottom: 2.5rem;
     }
@@ -441,16 +551,16 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      color: rgba(247,243,238,0.7);
+      color: rgba(247,243,238,0.8);
       font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s;
     }
 
     .contact-item:hover { color: var(--sand); }
 
     .contact-item-icon {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       border-radius: 50%;
       background: rgba(176,138,110,0.15);
       border: 1px solid rgba(176,138,110,0.3);
@@ -481,10 +591,11 @@
     }
 
     .form-field label {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(247,243,238,0.4);
+      color: rgba(247,243,238,0.7);
+      font-weight: 400;
     }
 
     .form-field input,
@@ -495,7 +606,7 @@
       font-weight: 300;
       color: var(--cream);
       background: rgba(247,243,238,0.06);
-      border: 1px solid rgba(247,243,238,0.12);
+      border: 1px solid rgba(247,243,238,0.2);
       border-radius: 0.6rem;
       padding: 0.85rem 1rem;
       outline: none;
@@ -504,16 +615,49 @@
     }
 
     .form-field input::placeholder,
-    .form-field textarea::placeholder { color: rgba(247,243,238,0.25); }
+    .form-field textarea::placeholder { color: rgba(247,243,238,0.35); }
 
     .form-field select option { background: var(--deep); }
 
     .form-field input:focus,
     .form-field select:focus,
     .form-field textarea:focus {
-      border-color: rgba(176,138,110,0.5);
+      border-color: rgba(176,138,110,0.6);
       background: rgba(247,243,238,0.09);
     }
+
+    /* ─── RGPD CHECKBOX ─── */
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .form-check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      margin-top: 2px;
+      accent-color: var(--terra);
+      cursor: pointer;
+    }
+
+    .form-check label {
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: rgba(247,243,238,0.6);
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 300;
+      cursor: pointer;
+    }
+
+    .form-check label a {
+      color: var(--sand);
+      text-decoration: underline;
+    }
+
+    .form-check label a:hover { color: var(--cream); }
 
     .form-submit {
       font-family: 'DM Sans', sans-serif;
@@ -527,11 +671,35 @@
       border-radius: 2rem;
       border: none;
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s, transform 0.2s, opacity 0.2s;
       align-self: flex-start;
     }
 
     .form-submit:hover { background: var(--sand); transform: translateY(-1px); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* ─── FORM FEEDBACK ─── */
+    .form-feedback {
+      display: none;
+      padding: 1rem 1.2rem;
+      border-radius: 0.6rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .form-feedback.success {
+      display: block;
+      background: rgba(122, 158, 138, 0.15);
+      border: 1px solid rgba(122, 158, 138, 0.4);
+      color: #a8d5be;
+    }
+
+    .form-feedback.error {
+      display: block;
+      background: rgba(180, 80, 80, 0.15);
+      border: 1px solid rgba(180, 80, 80, 0.3);
+      color: #f0a0a0;
+    }
 
     /* ─── FOOTER ─── */
     footer {
@@ -540,6 +708,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .footer-logo {
@@ -554,11 +724,12 @@
       display: flex;
       gap: 2rem;
       list-style: none;
+      flex-wrap: wrap;
     }
 
     .footer-links a {
       font-size: 0.75rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
@@ -569,6 +740,76 @@
 
     .footer-copy { font-size: 0.75rem; color: var(--muted); }
 
+    /* ─── LEGAL MODALS ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(59, 47, 39, 0.6);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--cream);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      max-width: 680px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--deep);
+      margin-bottom: 1.5rem;
+    }
+
+    .modal h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .modal p, .modal li {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal ul { padding-left: 1.2rem; }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--warm);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover { background: var(--sand); }
+
     /* ─── ANIMATIONS ─── */
     .fade-up {
       opacity: 0;
@@ -576,15 +817,13 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       nav { padding: 1.2rem 2rem; }
       .nav-links { display: none; }
+      .hamburger { display: flex; }
 
       section { padding: 4rem 2rem; }
 
@@ -595,7 +834,7 @@
       }
 
       .hero-visual { order: -1; }
-      .hero-image-frame { max-width: 320px; margin: 0 auto; }
+      .hero-image-frame { max-width: 300px; margin: 0 auto; }
 
       .services-grid { grid-template-columns: 1fr; }
 
@@ -604,10 +843,7 @@
         gap: 3rem;
       }
 
-      .about-drawing {
-        max-width: 320px;
-        margin: 0 auto;
-      }
+      .about-drawing { max-width: 300px; margin: 0 auto; }
 
       .process-header { grid-template-columns: 1fr; gap: 2rem; }
       .process-steps { grid-template-columns: 1fr 1fr; }
@@ -623,17 +859,19 @@
 
       footer {
         flex-direction: column;
+        align-items: flex-start;
         gap: 1.5rem;
-        text-align: center;
         padding: 2rem;
       }
+
+      .modal { padding: 2rem; }
     }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
+  <nav id="navbar">
     <a href="#" class="nav-logo">Flavia Kudach</a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
@@ -641,7 +879,19 @@
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación">
+    <a href="#servicios" class="mobile-link">Servicios</a>
+    <a href="#sobre-mi" class="mobile-link">Sobre mí</a>
+    <a href="#proceso" class="mobile-link">Proceso</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
+    <a href="#contacto" class="mobile-cta mobile-link">Escríbeme</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -657,11 +907,12 @@
         adolescentes, adultos y equipos — con una mirada integradora
         que une arteterapia, comunicación y psicología.
       </p>
+      <a href="#contacto" class="hero-cta">Escríbeme →</a>
     </div>
 
     <div class="hero-visual fade-up" style="transition-delay:0.2s">
       <div class="hero-image-frame">
-        <img src="flavia.jpg" alt="Flavia Kudach" />
+        <img src="flavia.jpg" alt="Flavia Kudach" width="420" height="560" loading="eager" />
       </div>
     </div>
   </section>
@@ -715,12 +966,9 @@
   <!-- ABOUT -->
   <section id="sobre-mi">
     <div class="about-grid fade-up">
-
-      <!-- TEXTO -->
       <div>
         <p class="section-label">Sobre mí</p>
         <h2 class="section-title">Arte terapeuta, comunicadora<br>y <em>artista</em>.</h2>
-
         <div class="about-body">
           <p>
             Integro mi formación en arteterapia y Comunicación con mi camino como
@@ -746,14 +994,12 @@
         </div>
       </div>
 
-      <!-- DIBUJO -->
       <div class="about-drawing">
         <div class="drawing-frame">
-          <img src="dibujo-flavia.jpg" alt="Ilustración de Flavia Kudach" />
+          <img src="dibujo-flavia.jpg" alt="Ilustración de Flavia Kudach" width="420" height="500" loading="lazy" />
         </div>
         <p class="drawing-caption">Obra de Flavia Kudach</p>
       </div>
-
     </div>
   </section>
 
@@ -808,7 +1054,7 @@
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-item-icon">📍</div>
-          <span>Barcelona, España · Sesiones presenciales y online</span>
+          <span>Barcelona, España · Sesiones online disponibles</span>
         </div>
         <a class="contact-item" href="mailto:flaviaku@proton.me">
           <div class="contact-item-icon">✉️</div>
@@ -821,7 +1067,7 @@
       </div>
     </div>
 
-    <form class="contact-form fade-up" action="https://formspree.io/f/mbdwdpll" method="POST" style="transition-delay:0.15s">
+    <form class="contact-form fade-up" id="contactForm" style="transition-delay:0.15s">
       <div class="form-row">
         <div class="form-field">
           <label for="nombre">Nombre</label>
@@ -849,7 +1095,18 @@
         <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntame brevemente qué te trae aquí..." required></textarea>
       </div>
 
-      <button type="submit" class="form-submit">Enviar mensaje →</button>
+      <!-- RGPD -->
+      <div class="form-check">
+        <input type="checkbox" id="rgpd" name="rgpd" required />
+        <label for="rgpd">
+          He leído y acepto la <a href="#" onclick="openModal('modalPrivacidad'); return false;">Política de Privacidad</a>.
+          Consiento el tratamiento de mis datos personales para gestionar mi consulta.
+        </label>
+      </div>
+
+      <div class="form-feedback" id="formFeedback"></div>
+
+      <button type="submit" class="form-submit" id="formSubmit">Enviar mensaje →</button>
     </form>
   </section>
 
@@ -860,11 +1117,105 @@
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#" onclick="openModal('modalPrivacidad'); return false;">Privacidad</a></li>
+      <li><a href="#" onclick="openModal('modalLegal'); return false;">Aviso Legal</a></li>
+      <li><a href="#" onclick="openModal('modalCookies'); return false;">Cookies</a></li>
     </ul>
     <span class="footer-copy">© 2026 Flavia Kudach · Barcelona</span>
   </footer>
 
+  <!-- ─── MODAL: POLÍTICA DE PRIVACIDAD ─── -->
+  <div class="modal-overlay" id="modalPrivacidad" role="dialog" aria-modal="true" aria-labelledby="titlePrivacidad">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('modalPrivacidad')" aria-label="Cerrar">✕</button>
+      <h2 id="titlePrivacidad">Política de Privacidad</h2>
+
+      <h3>Responsable del tratamiento</h3>
+      <p>Flavia Kudach · flaviaku@proton.me · Barcelona, España</p>
+
+      <h3>Finalidad</h3>
+      <p>Los datos personales que nos facilites a través del formulario de contacto serán tratados con la finalidad de gestionar tu consulta y, en su caso, establecer una relación terapéutica o de acompañamiento.</p>
+
+      <h3>Legitimación</h3>
+      <p>El tratamiento está basado en tu consentimiento expreso, que puedes retirar en cualquier momento sin que ello afecte a la licitud del tratamiento previo.</p>
+
+      <h3>Datos que recogemos</h3>
+      <ul>
+        <li>Nombre y apellidos</li>
+        <li>Dirección de correo electrónico</li>
+        <li>Contenido del mensaje</li>
+      </ul>
+
+      <h3>Destinatarios</h3>
+      <p>Tus datos no serán cedidos a terceros, salvo obligación legal. El formulario utiliza el servicio Formspree (EE.UU.), acogido a mecanismos de transferencia internacional adecuados.</p>
+
+      <h3>Conservación</h3>
+      <p>Los datos se conservarán durante el tiempo necesario para gestionar la consulta y, como máximo, durante 3 años desde el último contacto.</p>
+
+      <h3>Tus derechos</h3>
+      <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a flaviaku@proton.me. Si consideras que el tratamiento no es conforme, puedes reclamar ante la AEPD (aepd.es).</p>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: AVISO LEGAL ─── -->
+  <div class="modal-overlay" id="modalLegal" role="dialog" aria-modal="true" aria-labelledby="titleLegal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('modalLegal')" aria-label="Cerrar">✕</button>
+      <h2 id="titleLegal">Aviso Legal</h2>
+
+      <h3>Titular del sitio web</h3>
+      <p><strong>Nombre:</strong> Flavia Kudach<br />
+      <strong>Actividad:</strong> Arte terapeuta y acompañante terapéutica<br />
+      <strong>Domicilio:</strong> Barcelona, España<br />
+      <strong>Email:</strong> flaviaku@proton.me</p>
+
+      <h3>Objeto</h3>
+      <p>Este sitio web tiene carácter informativo y no constituye en ningún caso una prestación de servicios terapéuticos ni sanitarios a través de Internet. La información publicada no sustituye en ningún caso el diagnóstico o tratamiento profesional.</p>
+
+      <h3>Propiedad intelectual</h3>
+      <p>Todos los contenidos de este sitio web — textos, imágenes, ilustraciones y diseño — son propiedad de Flavia Kudach o de terceros que han autorizado su uso. Queda prohibida su reproducción, distribución o comunicación pública sin autorización expresa.</p>
+
+      <h3>Responsabilidad</h3>
+      <p>Flavia Kudach no se responsabiliza del uso que el usuario haga de los contenidos de este sitio web, ni de los daños que pudieran derivarse de dicho uso.</p>
+
+      <h3>Legislación aplicable</h3>
+      <p>Las presentes condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de Barcelona.</p>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: POLÍTICA DE COOKIES ─── -->
+  <div class="modal-overlay" id="modalCookies" role="dialog" aria-modal="true" aria-labelledby="titleCookies">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('modalCookies')" aria-label="Cerrar">✕</button>
+      <h2 id="titleCookies">Política de Cookies</h2>
+
+      <h3>¿Qué son las cookies?</h3>
+      <p>Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas un sitio web. Sirven para mejorar la experiencia de navegación y obtener información estadística.</p>
+
+      <h3>Cookies que utilizamos</h3>
+      <p>Este sitio web utiliza únicamente las siguientes cookies:</p>
+      <ul>
+        <li><strong>Cookies técnicas:</strong> necesarias para el correcto funcionamiento del sitio. No requieren consentimiento.</li>
+        <li><strong>Google Fonts:</strong> servicio externo para cargar tipografías. Puede almacenar cookies de terceros.</li>
+      </ul>
+
+      <h3>Este sitio NO utiliza</h3>
+      <ul>
+        <li>Cookies analíticas ni de seguimiento</li>
+        <li>Cookies publicitarias</li>
+        <li>Píxeles de redes sociales</li>
+      </ul>
+
+      <h3>Cómo gestionar las cookies</h3>
+      <p>Puedes configurar tu navegador para rechazar o eliminar cookies en cualquier momento. Ten en cuenta que desactivar las cookies técnicas puede afectar al funcionamiento del sitio.</p>
+
+      <h3>Más información</h3>
+      <p>Para cualquier consulta sobre el uso de cookies, escríbenos a flaviaku@proton.me.</p>
+    </div>
+  </div>
+
   <script>
+    // ─── INTERSECTION OBSERVER ───
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -873,11 +1224,95 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    const nav = document.querySelector('nav');
+    // ─── NAV SCROLL SHADOW ───
+    const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       nav.style.boxShadow = window.scrollY > 20
         ? '0 4px 30px rgba(59,47,39,0.08)'
         : 'none';
+    });
+
+    // ─── HAMBURGER MENU ───
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ─── MODALS ───
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal(overlay.id);
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+        if (mobileMenu.classList.contains('open')) {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+
+    // ─── FORM WITH FEEDBACK ───
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+    const submitBtn = document.getElementById('formSubmit');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      feedback.className = 'form-feedback';
+
+      try {
+        const res = await fetch('https://formspree.io/f/mbdwdpll', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+
+        if (res.ok) {
+          feedback.className = 'form-feedback success';
+          feedback.textContent = '✓ Mensaje enviado. Te responderé en breve.';
+          form.reset();
+        } else {
+          throw new Error('Error en el envío');
+        }
+      } catch {
+        feedback.className = 'form-feedback error';
+        feedback.textContent = '✕ Algo salió mal. Escríbeme directamente a flaviaku@proton.me';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar mensaje →';
+      }
     });
   </script>
 </body>
