@@ -313,7 +313,6 @@
 
     .about-body p + p { margin-top: 1.2rem; }
 
-    /* ─── DRAWING ─── */
     .about-drawing {
       display: flex;
       flex-direction: column;
@@ -327,15 +326,12 @@
       overflow: hidden;
       background: var(--warm);
       border: 1px solid var(--sand);
-      /* Slight rotation for an "artwork on wall" feel */
       transform: rotate(1deg);
       transition: transform 0.4s ease;
       box-shadow: 6px 6px 30px rgba(59,47,39,0.08);
     }
 
-    .drawing-frame:hover {
-      transform: rotate(0deg);
-    }
+    .drawing-frame:hover { transform: rotate(0deg); }
 
     .drawing-frame img {
       width: 100%;
@@ -447,7 +443,10 @@
       gap: 1rem;
       color: rgba(247,243,238,0.7);
       font-size: 0.9rem;
+      text-decoration: none;
     }
+
+    .contact-item:hover { color: var(--sand); }
 
     .contact-item-icon {
       width: 36px;
@@ -505,9 +504,7 @@
     }
 
     .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color: rgba(247,243,238,0.25);
-    }
+    .form-field textarea::placeholder { color: rgba(247,243,238,0.25); }
 
     .form-field select option { background: var(--deep); }
 
@@ -608,7 +605,6 @@
       }
 
       .about-drawing {
-        position: static;
         max-width: 320px;
         margin: 0 auto;
       }
@@ -814,13 +810,16 @@
           <div class="contact-item-icon">📍</div>
           <span>Barcelona, España · Sesiones online disponibles</span>
         </div>
-        <div class="contact-item">
+        <a class="contact-item" href="mailto:flaviaku@proton.me">
           <div class="contact-item-icon">✉️</div>
           <span>flaviaku@proton.me</span>
-        </div>
+        </a>
+        <a class="contact-item" href="https://wa.me/34665035051" target="_blank" rel="noopener">
+          <div class="contact-item-icon">💬</div>
+          <span>+34 665 035 051</span>
+        </a>
       </div>
     </div>
-
 
     <form class="contact-form fade-up" action="https://formspree.io/f/mbdwdpll" method="POST" style="transition-delay:0.15s">
       <div class="form-row">
