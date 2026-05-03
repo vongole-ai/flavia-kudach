@@ -825,18 +825,18 @@
     <form class="contact-form fade-up" action="https://formspree.io/f/mbdwdpll" method="POST" style="transition-delay:0.15s">
       <div class="form-row">
         <div class="form-field">
-          <label>Nombre</label>
-          <input type="text" placeholder="Tu nombre" />
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
         </div>
         <div class="form-field">
-          <label>Email</label>
-          <input type="email" placeholder="tu@email.com" />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" required />
         </div>
       </div>
 
       <div class="form-field">
-        <label>Servicio de interés</label>
-        <select>
+        <label for="servicio">Servicio de interés</label>
+        <select id="servicio" name="servicio" required>
           <option value="" disabled selected>Selecciona un servicio</option>
           <option>Terapia Relacional</option>
           <option>Orientación Vocacional</option>
@@ -846,8 +846,8 @@
       </div>
 
       <div class="form-field">
-        <label>Mensaje</label>
-        <textarea rows="4" placeholder="Cuéntame brevemente qué te trae aquí..."></textarea>
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntame brevemente qué te trae aquí..." required></textarea>
       </div>
 
       <button type="submit" class="form-submit">Enviar mensaje →</button>
