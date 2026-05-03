@@ -3,25 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO -->
   <title>Flavia Kudach — Arteterapia y Acompañamiento Terapéutico en Barcelona</title>
   <meta name="description" content="Arte terapeuta y acompañante terapéutica en Barcelona. Especializada en terapia relacional, orientación vocacional y gestión de equipos. Sesiones presenciales y online." />
   <meta name="author" content="Flavia Kudach" />
   <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Flavia Kudach — Arteterapia y Acompañamiento Terapéutico en Barcelona" />
   <meta property="og:description" content="Arte terapeuta y acompañante terapéutica en Barcelona. Terapia relacional, orientación vocacional y gestión de equipos." />
   <meta property="og:url" content="https://flaviakudach.com" />
   <meta property="og:image" content="https://flaviakudach.com/flavia.jpg" />
   <meta property="og:locale" content="es_ES" />
-
-  <!-- Favicon SVG inline -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233B2F27'/><text y='.9em' font-size='70' x='12'>🌿</text></svg>" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -30,14 +22,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:   #F7F3EE;
-      --warm:    #EDE5D8;
-      --sand:    #D4C4AE;
-      --terra:   #B08A6E;
-      --deep:    #3B2F27;
-      --text:    #4A3D34;
-      --muted:   #7A6A5E;
-      --accent:  #7A9E8A;
+      --cream: #F7F3EE;
+      --warm:  #EDE5D8;
+      --sand:  #D4C4AE;
+      --terra: #B08A6E;
+      --deep:  #3B2F27;
+      --text:  #4A3D34;
+      --muted: #7A6A5E;
     }
 
     html { scroll-behavior: smooth; }
@@ -49,7 +40,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── NOISE TEXTURE ─── */
     body::before {
       content: '';
       position: fixed;
@@ -60,7 +50,7 @@
       opacity: 0.4;
     }
 
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -69,9 +59,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(247, 243, 238, 0.92);
+      background: rgba(247,243,238,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(176, 138, 110, 0.12);
+      border-bottom: 1px solid rgba(176,138,110,0.12);
       transition: box-shadow 0.3s ease;
     }
 
@@ -102,7 +92,7 @@
 
     .nav-links a:hover { color: var(--deep); }
 
-    /* ─── HAMBURGER ─── */
+    /* HAMBURGER */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -127,7 +117,7 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ─── MOBILE MENU ─── */
+    /* MOBILE MENU */
     .mobile-menu {
       display: none;
       position: fixed;
@@ -148,7 +138,6 @@
       font-weight: 300;
       color: var(--deep);
       text-decoration: none;
-      letter-spacing: 0.05em;
       transition: color 0.2s;
     }
 
@@ -169,7 +158,7 @@
 
     .mobile-menu .mobile-cta:hover { background: var(--terra); }
 
-    /* ─── HERO ─── */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -221,11 +210,7 @@
       margin-bottom: 2rem;
     }
 
-    .hero-title em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--terra);
-    }
+    .hero-title em { font-style: italic; color: var(--terra); }
 
     .hero-subtitle {
       font-size: 1rem;
@@ -266,7 +251,6 @@
       aspect-ratio: 3/4;
       border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
       overflow: hidden;
-      position: relative;
       background: var(--warm);
       animation: morphShape 10s ease-in-out infinite alternate;
     }
@@ -277,21 +261,16 @@
       100% { border-radius: 45% 55% 60% 40% / 40% 60% 55% 45%; }
     }
 
-    .hero-image-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-    }
+    .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
 
-    /* ─── REDUCED MOTION ─── */
+    /* REDUCED MOTION */
     @media (prefers-reduced-motion: reduce) {
       .fade-up { opacity: 1; transform: none; transition: none; }
       .hero-image-frame { animation: none; }
       * { transition-duration: 0.01ms !important; }
     }
 
-    /* ─── SECTION BASE ─── */
+    /* SECTIONS */
     section { padding: 6rem 4rem; }
 
     .section-label {
@@ -314,7 +293,7 @@
 
     .section-title em { font-style: italic; color: var(--terra); }
 
-    /* ─── SERVICES ─── */
+    /* SERVICES */
     .services {
       background: var(--deep);
       color: var(--cream);
@@ -333,11 +312,7 @@
 
     .services .section-label { color: var(--sand); }
     .services .section-title { color: var(--cream); }
-
-    .services-header {
-      max-width: 65ch;
-      margin-bottom: 4rem;
-    }
+    .services-header { max-width: 65ch; margin-bottom: 4rem; }
 
     .services-grid {
       display: grid;
@@ -406,7 +381,7 @@
       border-radius: 2rem;
     }
 
-    /* ─── ABOUT ─── */
+    /* ABOUT */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 420px;
@@ -442,13 +417,7 @@
     }
 
     .drawing-frame:hover { transform: rotate(0deg); }
-
-    .drawing-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
+    .drawing-frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
     .drawing-caption {
       font-family: 'Cormorant Garamond', serif;
@@ -459,7 +428,7 @@
       text-align: center;
     }
 
-    /* ─── PROCESS ─── */
+    /* PROCESS */
     .process-section { padding: 6rem 4rem; }
 
     .process-header {
@@ -470,12 +439,7 @@
       margin-bottom: 4rem;
     }
 
-    .process-desc {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--muted);
-      font-weight: 300;
-    }
+    .process-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); font-weight: 300; }
 
     .process-steps {
       display: grid;
@@ -513,14 +477,9 @@
       margin-bottom: 0.6rem;
     }
 
-    .step-text {
-      font-size: 0.82rem;
-      line-height: 1.65;
-      color: var(--muted);
-      font-weight: 300;
-    }
+    .step-text { font-size: 0.82rem; line-height: 1.65; color: var(--muted); font-weight: 300; }
 
-    /* ─── CONTACT ─── */
+    /* CONTACT */
     .contact-section {
       background: var(--deep);
       padding: 6rem 4rem;
@@ -541,11 +500,7 @@
       margin-bottom: 2.5rem;
     }
 
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .contact-info { display: flex; flex-direction: column; gap: 1rem; }
 
     .contact-item {
       display: flex;
@@ -571,24 +526,12 @@
       flex-shrink: 0;
     }
 
-    /* ─── FORM ─── */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
+    /* FORM */
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
 
     .form-field label {
       font-size: 0.75rem;
@@ -626,17 +569,11 @@
       background: rgba(247,243,238,0.09);
     }
 
-    /* ─── RGPD CHECKBOX ─── */
-    .form-check {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
+    /* RGPD */
+    .form-check { display: flex; align-items: flex-start; gap: 0.75rem; }
 
     .form-check input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      min-width: 18px;
+      width: 18px; height: 18px; min-width: 18px;
       margin-top: 2px;
       accent-color: var(--terra);
       cursor: pointer;
@@ -652,11 +589,7 @@
       cursor: pointer;
     }
 
-    .form-check label a {
-      color: var(--sand);
-      text-decoration: underline;
-    }
-
+    .form-check label a { color: var(--sand); text-decoration: underline; }
     .form-check label a:hover { color: var(--cream); }
 
     .form-submit {
@@ -678,7 +611,6 @@
     .form-submit:hover { background: var(--sand); transform: translateY(-1px); }
     .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-    /* ─── FORM FEEDBACK ─── */
     .form-feedback {
       display: none;
       padding: 1rem 1.2rem;
@@ -689,19 +621,19 @@
 
     .form-feedback.success {
       display: block;
-      background: rgba(122, 158, 138, 0.15);
-      border: 1px solid rgba(122, 158, 138, 0.4);
+      background: rgba(122,158,138,0.15);
+      border: 1px solid rgba(122,158,138,0.4);
       color: #a8d5be;
     }
 
     .form-feedback.error {
       display: block;
-      background: rgba(180, 80, 80, 0.15);
-      border: 1px solid rgba(180, 80, 80, 0.3);
+      background: rgba(180,80,80,0.15);
+      border: 1px solid rgba(180,80,80,0.3);
       color: #f0a0a0;
     }
 
-    /* ─── FOOTER ─── */
+    /* FOOTER */
     footer {
       padding: 2rem 4rem;
       border-top: 1px solid var(--sand);
@@ -720,12 +652,7 @@
       color: var(--deep);
     }
 
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      flex-wrap: wrap;
-    }
+    .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
 
     .footer-links a {
       font-size: 0.75rem;
@@ -737,15 +664,14 @@
     }
 
     .footer-links a:hover { color: var(--deep); }
-
     .footer-copy { font-size: 0.75rem; color: var(--muted); }
 
-    /* ─── LEGAL MODALS ─── */
+    /* MODALS */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(59, 47, 39, 0.6);
+      background: rgba(59,47,39,0.6);
       z-index: 200;
       align-items: center;
       justify-content: center;
@@ -788,17 +714,16 @@
       margin-bottom: 0.5rem;
     }
 
+    .modal a { color: var(--terra); }
     .modal ul { padding-left: 1.2rem; }
 
     .modal-close {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: 1.5rem; right: 1.5rem;
       background: var(--warm);
       border: none;
       border-radius: 50%;
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       font-size: 1.1rem;
       cursor: pointer;
       color: var(--deep);
@@ -810,7 +735,7 @@
 
     .modal-close:hover { background: var(--sand); }
 
-    /* ─── ANIMATIONS ─── */
+    /* ANIMATIONS */
     .fade-up {
       opacity: 0;
       transform: translateY(24px);
@@ -819,7 +744,7 @@
 
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── RESPONSIVE ─── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 1.2rem 2rem; }
       .nav-links { display: none; }
@@ -827,43 +752,23 @@
 
       section { padding: 4rem 2rem; }
 
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 7rem 2rem 3rem;
-        gap: 3rem;
-      }
-
+      .hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; gap: 3rem; }
       .hero-visual { order: -1; }
       .hero-image-frame { max-width: 300px; margin: 0 auto; }
 
       .services-grid { grid-template-columns: 1fr; }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-drawing { max-width: 300px; margin: 0 auto; }
 
       .process-header { grid-template-columns: 1fr; gap: 2rem; }
       .process-steps { grid-template-columns: 1fr 1fr; }
       .step { border-right: none; border-bottom: 1px solid var(--sand); }
 
-      .contact-section {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 4rem 2rem;
-      }
-
+      .contact-section { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
       .form-row { grid-template-columns: 1fr; }
 
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-        padding: 2rem;
-      }
-
+      footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem; }
       .modal { padding: 2rem; }
     }
   </style>
@@ -929,11 +834,7 @@
         <div class="service-number">01</div>
         <div class="service-icon">🌿</div>
         <h3 class="service-name">Terapia Relacional</h3>
-        <p class="service-text">
-          Exploramos los vínculos que te forman — contigo mismo, con los demás,
-          con el mundo. Un proceso para sanar patrones relacionales y construir
-          conexiones más auténticas y libres.
-        </p>
+        <p class="service-text">Exploramos los vínculos que te forman — contigo mismo, con los demás, con el mundo. Un proceso para sanar patrones relacionales y construir conexiones más auténticas y libres.</p>
         <span class="service-tag">Individual · Adultos</span>
       </div>
 
@@ -941,11 +842,7 @@
         <div class="service-number">02</div>
         <div class="service-icon">🧭</div>
         <h3 class="service-name">Orientación Vocacional</h3>
-        <p class="service-text">
-          Acompaño a adolescentes y adultos a descubrir su camino profesional
-          a través del estudio de perfiles y un proceso de autoconocimiento
-          profundo y transformador.
-        </p>
+        <p class="service-text">Acompaño a adolescentes y adultos a descubrir su camino profesional a través del estudio de perfiles y un proceso de autoconocimiento profundo y transformador.</p>
         <span class="service-tag">Adolescentes · Adultos</span>
       </div>
 
@@ -953,11 +850,7 @@
         <div class="service-number">03</div>
         <div class="service-icon">◈</div>
         <h3 class="service-name">Gestión de Equipos</h3>
-        <p class="service-text">
-          Trabajo con empresas y organizaciones para fortalecer la cohesión,
-          la comunicación y el bienestar de los equipos, con una mirada
-          sistémica y herramientas creativas.
-        </p>
+        <p class="service-text">Trabajo con empresas y organizaciones para fortalecer la cohesión, la comunicación y el bienestar de los equipos, con una mirada sistémica y herramientas creativas.</p>
         <span class="service-tag">Empresas · Equipos</span>
       </div>
     </div>
@@ -970,27 +863,10 @@
         <p class="section-label">Sobre mí</p>
         <h2 class="section-title">Arte terapeuta, comunicadora<br>y <em>artista</em>.</h2>
         <div class="about-body">
-          <p>
-            Integro mi formación en arteterapia y Comunicación con mi camino como
-            escritora y artista — prácticas que desarrollo hace años como pilar
-            de mi propio proceso terapéutico.
-          </p>
-          <p>
-            Esta conexión con la escritura y la pintura nutre mi mirada,
-            permitiéndome acompañar a personas y equipos con una sensibilidad
-            creativa única.
-          </p>
-          <p>
-            Sumo herramientas de expresión creativa, psicología y trabajo energético
-            para facilitar transformaciones profundas y genuinas, fusionando
-            experiencia profesional con la potencia de la expresión humana.
-          </p>
-          <p>
-            Mi camino comienza en Ciencias de la Comunicación y se amplía a través
-            de años de formación artística — teatro, pintura, escritura. A eso sumo
-            mi especialización en arteterapia, estudios en Psicología y diversas
-            certificaciones en terapias energéticas.
-          </p>
+          <p>Integro mi formación en arteterapia y Comunicación con mi camino como escritora y artista — prácticas que desarrollo hace años como pilar de mi propio proceso terapéutico.</p>
+          <p>Esta conexión con la escritura y la pintura nutre mi mirada, permitiéndome acompañar a personas y equipos con una sensibilidad creativa única.</p>
+          <p>Sumo herramientas de expresión creativa, psicología y trabajo energético para facilitar transformaciones profundas y genuinas, fusionando experiencia profesional con la potencia de la expresión humana.</p>
+          <p>Mi camino comienza en Ciencias de la Comunicación y se amplía a través de años de formación artística — teatro, pintura, escritura. A eso sumo mi especialización en arteterapia, estudios en Psicología y diversas certificaciones en terapias energéticas.</p>
         </div>
       </div>
 
@@ -1010,11 +886,7 @@
         <p class="section-label">Cómo trabajo</p>
         <h2 class="section-title">Un proceso pensado<br>para <em>ti</em>.</h2>
       </div>
-      <p class="process-desc">
-        Cada acompañamiento comienza con escucha genuina.
-        Adaptamos el proceso a tu momento, tus objetivos y tu forma de ser.
-        No hay fórmulas, hay encuentros.
-      </p>
+      <p class="process-desc">Cada acompañamiento comienza con escucha genuina. Adaptamos el proceso a tu momento, tus objetivos y tu forma de ser. No hay fórmulas, hay encuentros.</p>
     </div>
 
     <div class="process-steps">
@@ -1046,11 +918,7 @@
     <div class="fade-up">
       <p class="section-label">Contacto</p>
       <h2 class="section-title">El primer paso<br>es <em>escribir</em>.</h2>
-      <p class="contact-text">
-        Si sientes que algo necesita moverse en tu vida — personal, profesional
-        o en tu equipo — estoy aquí para acompañarte.
-        La primera sesión es un espacio para conocernos.
-      </p>
+      <p class="contact-text">Si sientes que algo necesita moverse en tu vida — personal, profesional o en tu equipo — estoy aquí para acompañarte. La primera sesión es un espacio para conocernos.</p>
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-item-icon">📍</div>
@@ -1095,7 +963,6 @@
         <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntame brevemente qué te trae aquí..." required></textarea>
       </div>
 
-      <!-- RGPD -->
       <div class="form-check">
         <input type="checkbox" id="rgpd" name="rgpd" required />
         <label for="rgpd">
@@ -1124,7 +991,7 @@
     <span class="footer-copy">© 2026 Flavia Kudach · Barcelona</span>
   </footer>
 
-  <!-- ─── MODAL: POLÍTICA DE PRIVACIDAD ─── -->
+  <!-- MODAL: PRIVACIDAD -->
   <div class="modal-overlay" id="modalPrivacidad" role="dialog" aria-modal="true" aria-labelledby="titlePrivacidad">
     <div class="modal">
       <button class="modal-close" onclick="closeModal('modalPrivacidad')" aria-label="Cerrar">✕</button>
@@ -1162,7 +1029,7 @@
     </div>
   </div>
 
-  <!-- ─── MODAL: AVISO LEGAL ─── -->
+  <!-- MODAL: AVISO LEGAL -->
   <div class="modal-overlay" id="modalLegal" role="dialog" aria-modal="true" aria-labelledby="titleLegal">
     <div class="modal">
       <button class="modal-close" onclick="closeModal('modalLegal')" aria-label="Cerrar">✕</button>
@@ -1188,60 +1055,55 @@
 
       <h3>Protección de datos</h3>
       <p>Para más información sobre el tratamiento de tus datos personales, puedes consultar la <a href="#" onclick="closeModal('modalLegal'); openModal('modalPrivacidad'); return false;">Política de Privacidad</a> disponible en este sitio web.</p>
-
     </div>
   </div>
 
-  <!-- ─── MODAL: POLÍTICA DE COOKIES ─── -->
+  <!-- MODAL: COOKIES -->
   <div class="modal-overlay" id="modalCookies" role="dialog" aria-modal="true" aria-labelledby="titleCookies">
     <div class="modal">
       <button class="modal-close" onclick="closeModal('modalCookies')" aria-label="Cerrar">✕</button>
       <h2 id="titleCookies">Política de Cookies</h2>
 
       <h3>¿Qué son las cookies?</h3>
-      <p>Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas un sitio web. Sirven para mejorar la experiencia de navegación y obtener información estadística.</p>
+      <p>Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas un sitio web. Sirven para garantizar el funcionamiento del sitio y, en algunos casos, para mejorar la experiencia de navegación.</p>
 
       <h3>Cookies que utilizamos</h3>
-      <p>Este sitio web utiliza únicamente las siguientes cookies:</p>
-      <ul>
-        <li><strong>Cookies técnicas:</strong> necesarias para el correcto funcionamiento del sitio. No requieren consentimiento.</li>
-        <li><strong>Google Fonts:</strong> servicio externo para cargar tipografías. Puede almacenar cookies de terceros.</li>
-      </ul>
+      <p>Este sitio web utiliza únicamente cookies técnicas, necesarias para el correcto funcionamiento del sitio. Estas cookies no requieren consentimiento.</p>
+
+      <h3>Servicios de terceros</h3>
+      <p>Este sitio web utiliza Google Fonts para la carga de tipografías. Este servicio puede implicar la conexión con servidores de Google y el tratamiento de datos como la dirección IP del usuario. Puedes consultar la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidad de Google</a> para más información.</p>
 
       <h3>Este sitio NO utiliza</h3>
       <ul>
-        <li>Cookies analíticas ni de seguimiento</li>
+        <li>Cookies analíticas o de medición</li>
         <li>Cookies publicitarias</li>
         <li>Píxeles de redes sociales</li>
       </ul>
 
-      <h3>Cómo gestionar las cookies</h3>
-      <p>Puedes configurar tu navegador para rechazar o eliminar cookies en cualquier momento. Ten en cuenta que desactivar las cookies técnicas puede afectar al funcionamiento del sitio.</p>
+      <h3>Gestión de cookies</h3>
+      <p>Puedes configurar tu navegador para aceptar, rechazar o eliminar cookies en cualquier momento. Ten en cuenta que desactivar las cookies técnicas puede afectar al funcionamiento del sitio web.</p>
 
       <h3>Más información</h3>
-      <p>Para cualquier consulta sobre el uso de cookies, escríbenos a flaviaku@proton.me.</p>
+      <p>Para cualquier consulta sobre el uso de cookies, puedes escribir a <a href="mailto:flaviaku@proton.me">flaviaku@proton.me</a>.</p>
     </div>
   </div>
 
   <script>
-    // ─── INTERSECTION OBSERVER ───
+    // FADE-UP
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // ─── NAV SCROLL SHADOW ───
+    // NAV SHADOW
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 20
-        ? '0 4px 30px rgba(59,47,39,0.08)'
-        : 'none';
+      nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(59,47,39,0.08)' : 'none';
     });
 
-    // ─── HAMBURGER MENU ───
+    // HAMBURGER
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1261,7 +1123,7 @@
       });
     });
 
-    // ─── MODALS ───
+    // MODALS
     function openModal(id) {
       document.getElementById(id).classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -1289,14 +1151,13 @@
       }
     });
 
-    // ─── FORM WITH FEEDBACK ───
+    // FORM
     const form = document.getElementById('contactForm');
     const feedback = document.getElementById('formFeedback');
     const submitBtn = document.getElementById('formSubmit');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando...';
       feedback.className = 'form-feedback';
@@ -1313,7 +1174,7 @@
           feedback.textContent = '✓ Mensaje enviado. Te responderé en breve.';
           form.reset();
         } else {
-          throw new Error('Error en el envío');
+          throw new Error();
         }
       } catch {
         feedback.className = 'form-feedback error';
